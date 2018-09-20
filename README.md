@@ -12,7 +12,7 @@ A *.dll* required to run on video-mode and to save it as *.mp4.
 
 ### —Resnet_SSD_deploy/Res10_300x300_SSD_iter_140000.caffemodel
 Files save the pre-trained SSD-Resnet caffe model.  
-OpenCV’s deep learning face detector is based on the Single Shot Detector (SSD) framework with a ResNet base network (*unlike other OpenCV SSDs that you may have seen which typically use MobileNet as the base network).
+OpenCV’s deep learning face detector is based on the Single Shot Detector (SSD) framework with a ResNet base network (*unlike other OpenCV SSDs that you may have seen which typically use MobileNet as the base network).*
 
 ------
 ## Result
