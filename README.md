@@ -16,4 +16,4 @@ OpenCV’s deep learning face detector is based on the Single Shot Detector (SSD
 
 ------
 ## Result
-![my test](https://github.com/LZQthePlane/Object-detection-based-on-MobileNetSSD/blob/master/test_out/example_01.jpg) 
+![my test](https://github.com/LZQthePlane/Face-detection-base-on-ResnetSSD/blob/master/test_out/example.gif) 
