@@ -60,13 +60,13 @@ while True:
             # detection result的文字显示
             cv.putText(frame, label, (x_start+2, y_start-5), cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
-            # FPS的实时显示
-            fps_show = 'FPS:{0:.4}'.format(realtime_fps)
-            cv.putText(frame, fps_show, (int(origin_w*0.85), int(origin_h*0.9)), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
-            if (time.time()-start_time) > interval:
-                realtime_fps = counter / (time.time()-start_time)
-                counter = 0
-                start_time = time.time()
+        # FPS的实时显示
+        fps_show = 'FPS:{0:.4}'.format(realtime_fps)
+        cv.putText(frame, fps_show, (int(origin_w*0.85), int(origin_h*0.9)), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
+        if (time.time()-start_time) > interval:
+            realtime_fps = counter / (time.time()-start_time)
+            counter = 0
+            start_time = time.time()
 
     writer.write(frame)
     cv.imshow('Frame', frame)
