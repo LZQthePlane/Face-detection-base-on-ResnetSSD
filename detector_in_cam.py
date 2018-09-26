@@ -13,7 +13,7 @@ threshold = 0.5  # objects' confidence threshold
 prototxt_file = file_path + 'Resnet_SSD_deploy.prototxt'
 caffemodel_file = file_path + 'Res10_300x300_SSD_iter_140000.caffemodel'
 net = cv.dnn.readNetFromCaffe(prototxt_file, caffeModel=caffemodel_file)
-print('MobileNetSSD caffe model loaded successfully')
+print('ResNetSSD caffe model loaded successfully')
 
 # 获取摄像头
 # 这里使用的是opencv的API，而非imutils中的VideoStream，cap.read()返回值有所不同
