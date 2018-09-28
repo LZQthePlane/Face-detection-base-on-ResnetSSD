@@ -55,7 +55,7 @@ while True:
     fps.update()
     fps.stop()
     text = "FPS: {:.2f}".format(fps.fps())
-    cv.putText(frame, text, (10, int(origin_h * 0.9)), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
+    cv.putText(frame, text, (15, int(origin_h * 0.92)), cv.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
     cv.imshow('Frame', frame)
     writer.write(frame)
 
