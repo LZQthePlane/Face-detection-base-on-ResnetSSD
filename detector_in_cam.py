@@ -19,13 +19,7 @@ print('ResNetSSD caffe model loaded successfully')
 # 这里使用的是opencv的API，而非imutils中的VideoStream，cap.read()返回值有所不同
 cap = cv.VideoCapture(0)
 time.sleep(1.0)
-# fps_imutils = FPS().start()
-
-# 显示实时的FPS
-start_time = time.time()
-interval = 1  # 每隔1秒重新计算帧数
-counter = 0  # 统计每一秒的帧数
-realtime_fps = 'Starting'
+fps = FPS().start()
 
 # 输出视频的相关参数
 size = (int(cap.get(cv.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv.CAP_PROP_FRAME_HEIGHT)))
@@ -43,8 +37,6 @@ while True:
     net.setInput(blob)
     detections = net.forward()
 
-    counter += 1
-
     for i in range(0, detections.shape[2]):
         confidence = detections[0, 0, i, 2]
         if confidence > threshold:
@@ -60,21 +52,16 @@ while True:
             # detection result的文字显示
             cv.putText(frame, label, (x_start+2, y_start-5), cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
-        # FPS的实时显示
-        fps_show = 'FPS:{0:.4}'.format(realtime_fps)
-        cv.putText(frame, fps_show, (int(origin_w*0.85), int(origin_h*0.9)), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
-        if (time.time()-start_time) > interval:
-            realtime_fps = counter / (time.time()-start_time)
-            counter = 0
-            start_time = time.time()
-
-    writer.write(frame)
+    fps.update()
+    fps.stop()
+    text = "FPS: {:.2f}".format(fps.fps())
+    cv.putText(frame, text, (10, int(origin_h * 0.9)), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
     cv.imshow('Frame', frame)
+    writer.write(frame)
+
     if cv.waitKey(1) & 0xFF == ord("q"):  # 退出键
         break
-    # fps_imutils.update()
 
-# fps_imutils.stop()
 # print('Elapsed time: {0:.2f}'.format(fps_imutils.elapsed()))  # webcam运行的时间
 # print('Approximate FPS: {0:.2f}'.format(fps_imutils.fps()))  # 每秒帧数
 writer.release()
