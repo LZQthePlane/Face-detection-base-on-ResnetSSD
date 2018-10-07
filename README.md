@@ -12,8 +12,9 @@ A *.dll* required to run on video-mode and to save it as *.mp4* if using **Windo
 
 ### —Resnet_SSD_deploy/Res10_300x300_SSD_iter_140000.caffemodel
 Files save the pre-trained SSD-Resnet caffe model.    
-   .prototxt file which specifies the architecture of the neural network – how the different layers are arranged etc.
-   .caffemodel file which stores the weights of the trained model
+   - .prototxt file specifies the architecture of the neural network – how the different layers are arranged etc.
+   - .caffemodel file stores the weights of the trained model.    
+   
 OpenCV’s deep learning face detector is based on the Single Shot Detector (SSD) framework with a ResNet base network (*unlike other OpenCV SSDs that you may have seen which typically use MobileNet as the base network).*
 
 ------
