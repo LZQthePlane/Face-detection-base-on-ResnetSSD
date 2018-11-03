@@ -7,9 +7,6 @@ Project of Face detection using Resnet and SSD, apply in image and webcam.
 ### —test_out
 The result of my test in webcam.
 
-### —openh264-XXX.dll
-A *.dll* required to run on video-mode and to save it as *.mp4* if using **Windows** platform.
-
 ### —Resnet_SSD_deploy/Res10_300x300_SSD_iter_140000.caffemodel
 Files save the pre-trained SSD-Resnet caffe model.    
    - .prototxt file specifies the architecture of the neural network – how the different layers are arranged etc.
